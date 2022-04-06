@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background: #fafafa;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render } from 'lit';
+      import '../brewery-app.js';
+
+      const title = 'List of Breweries';
+      render(
+        html` <brewery-app .title=${title}> some light-dom </brewery-app> `,
+        document.querySelector('#demo')
+      );
+    </script>
+  </body>
+</html>
