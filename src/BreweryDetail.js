@@ -5,8 +5,22 @@ export class BreweryDetail extends LitElement {
     return css`
       .title {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr;
         align-items: center;
+        gap: 1rem;
+      }
+
+      .title label {
+        border: .1rem solid #ddd;
+        padding: .5rem;
+      }
+
+      h3 {
+        margin: 0;
+      }
+      
+      ul {
+        list-style-type: none;
       }
     `;
   }
@@ -34,18 +48,20 @@ export class BreweryDetail extends LitElement {
 
   render() {
     return html`<div class="title">
-        <h3>${this.name}</h3>
         <div>
-          <label for="visited">Visited</label>
+          <label>Visited
           <input
             type="checkbox"
-            id="visited"
             ?checked=${this.visited}
             @change=${this._toggleVisitedStatus}
           />
+          </label>
         </div>
+        <h3>${this.name}</h3>
       </div>
-      <p>Type: ${this.type}</p>
-      <p>City: ${this.city}</p>`;
+      <ul>
+      <li>Type: ${this.type}</li>
+      <li>City: ${this.city}</li>
+      </ul>`;
   }
 }
